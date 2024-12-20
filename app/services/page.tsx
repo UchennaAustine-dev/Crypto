@@ -2,43 +2,66 @@
 
 import { PageTransition } from "@/components/page-transition";
 import { motion } from "framer-motion";
+import { ArrowRight, BarChart2, Shield, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function ServicesPage() {
+  const services = [
+    {
+      title: "Advanced Trading Platform",
+      description:
+        "Execute trades with precision using our state-of-the-art trading interface. Access real-time market data, advanced charting tools, and customizable indicators.",
+      icon: <BarChart2 className="w-8 h-8 text-[#186CCC]" />,
+    },
+    {
+      title: "Intelligent Portfolio Management",
+      description:
+        "Optimize your crypto portfolio with AI-driven insights. Track performance, analyze risk, and receive personalized investment recommendations.",
+      icon: <Zap className="w-8 h-8 text-[#186CCC]" />,
+    },
+    {
+      title: "Secure Asset Storage",
+      description:
+        "Keep your digital assets safe with our industry-leading security measures. Multi-signature wallets, cold storage, and 24/7 monitoring protect your investments.",
+      icon: <Shield className="w-8 h-8 text-[#186CCC]" />,
+    },
+  ];
+
   return (
     <PageTransition>
-      <div className="pt-32 pb-20">
+      <div className="pt-32 pb-20 bg-gradient-to-b from-[#DFEAF8] to-white">
         <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-bold mb-8 text-[#FA802F]">
+          <h1 className="text-5xl font-bold mb-8 text-[#20446F]">
             Our Services
           </h1>
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="bg-[#F3E8CA]/5 p-6 rounded-lg border border-[#F3E8CA]/10"
-            >
-              <h2 className="text-2xl font-semibold mb-4">Trading Platform</h2>
-              <p className="text-[#9C8B73]">
-                Advanced trading tools and real-time market data to help you
-                make informed decisions.
-              </p>
-            </motion.div>
+          <p className="text-xl text-[#849EC0] mb-12 max-w-3xl">
+            Discover a suite of powerful tools and services designed to elevate
+            your crypto trading experience. From advanced analytics to secure
+            storage, we&#39;ve got you covered.
+          </p>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="bg-[#F3E8CA]/5 p-6 rounded-lg border border-[#F3E8CA]/10"
-            >
-              <h2 className="text-2xl font-semibold mb-4">
-                Portfolio Management
-              </h2>
-              <p className="text-[#9C8B73]">
-                Track and manage your crypto investments with our intuitive
-                portfolio tools.
-              </p>
-            </motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index }}
+                className="bg-white p-6 rounded-lg shadow-lg border border-[#DFEAF8]"
+              >
+                <div className="mb-4">{service.icon}</div>
+                <h2 className="text-2xl font-semibold mb-4 text-[#20446F]">
+                  {service.title}
+                </h2>
+                <p className="text-[#849EC0] mb-6">{service.description}</p>
+                <Button
+                  variant="ghost"
+                  className="text-[#186CCC] hover:text-[#186CCC]/80 p-0"
+                >
+                  Learn more <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
+import CryptoTicker from "./crypto-ticker";
 
 export function Navigation() {
   const pathname = usePathname();
@@ -21,7 +22,7 @@ export function Navigation() {
       animate={{ y: 0 }}
       className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-sm border-b border-[#849EC0]/10"
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className=" w-[90%] mx-auto px-2 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-[#186CCC] font-bold text-2xl">
             CRYPTO.
@@ -54,6 +55,9 @@ export function Navigation() {
             <Link href="/auth">Explore now</Link>
           </Button>
         </div>
+      </div>
+      <div className=" ">
+        <CryptoTicker />
       </div>
     </motion.nav>
   );

@@ -1,62 +1,79 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, Shield, Zap, Users } from "lucide-react";
 
 export function FeaturesSection() {
+  const features = [
+    {
+      icon: <Zap className="w-8 h-8 text-[#186CCC]" />,
+      title: "Lightning-Fast Trades",
+      description:
+        "Execute trades at the speed of light with our cutting-edge infrastructure.",
+    },
+    {
+      icon: <Shield className="w-8 h-8 text-[#186CCC]" />,
+      title: "Bank-Grade Security",
+      description:
+        "Your assets are protected by state-of-the-art security measures and insurance.",
+    },
+    {
+      icon: <Users className="w-8 h-8 text-[#186CCC]" />,
+      title: "Community-Driven",
+      description:
+        "Join a thriving community of traders and investors sharing insights.",
+    },
+  ];
+
   return (
-    <section className="py-20">
+    <section className="py-20 bg-gradient-to-b from-white to-[#DFEAF8]">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-20">
-          <h2 className="text-4xl font-bold mb-4">
-            Your <span className="text-[#CCFF00]">trusted</span> partner of
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl mx-auto text-center mb-20"
+        >
+          <h2 className="text-4xl font-bold mb-4 text-[#20446F]">
+            Your <span className="text-[#186CCC]">trusted</span> partner in
             <br />
-            cryptocurrency.
+            cryptocurrency trading.
           </h2>
-          <p className="text-gray-400">
-            Pekaboo unites and secures a growing ecosystem of specialized
-            blockchain called parachains.
+          <p className="text-[#849EC0] text-lg">
+            CryptoFlow unites cutting-edge technology with user-friendly
+            interfaces, creating a secure and efficient trading ecosystem.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <Card className="bg-gray-900/50 border-gray-800">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-2">01.</h3>
-              <h4 className="text-lg font-medium mb-4">
-                Service for Any Level of Expertise.
-              </h4>
-              <p className="text-gray-400 text-sm">
-                No matter your experience level, we provide the tools you need.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-[#CCFF00] text-black">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-2">02.</h3>
-              <h4 className="text-lg font-medium mb-4">
-                Industry best practices.
-              </h4>
-              <p className="text-black/70 text-sm">
-                We follow and implement the highest security standards.
-              </p>
-              <Button variant="outline" className="mt-4">
-                Learn More →
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-gray-900/50 border-gray-800">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-2">03.</h3>
-              <h4 className="text-lg font-medium mb-4">
-                Protected by Insurance.
-              </h4>
-              <p className="text-gray-400 text-sm">
-                Your investments are protected by our comprehensive insurance
-                coverage.
-              </p>
-            </CardContent>
-          </Card>
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <CardContent className="p-6">
+                  <div className="mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2 text-[#20446F]">
+                    {feature.title}
+                  </h3>
+                  <p className="text-[#849EC0] text-sm mb-4">
+                    {feature.description}
+                  </p>
+                  <Button
+                    variant="ghost"
+                    className="text-[#186CCC] hover:text-[#186CCC]/80 p-0 flex items-center"
+                  >
+                    Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

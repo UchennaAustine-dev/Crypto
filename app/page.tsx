@@ -5,6 +5,8 @@ import { FeaturesSection } from "@/components/features-section";
 import { ChartSection } from "@/components/chart-section";
 import { StepsSection } from "@/components/steps-section";
 import { PageTransition } from "@/components/page-transition";
+import { TrustedPlatformSection } from "@/components/trusted-platform-section";
+import { WhatsNewSection } from "@/components/whats-new-section";
 
 export default function Home() {
   return (
@@ -13,7 +15,9 @@ export default function Home() {
         <HeroSection />
         <FeaturesSection />
         <ChartSection />
+        <WhatsNewSection />
         <StepsSection />
+        <TrustedPlatformSection />
       </main>
     </PageTransition>
   );

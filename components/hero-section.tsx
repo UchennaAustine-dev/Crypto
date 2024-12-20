@@ -4,13 +4,15 @@ import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import actualimage from "@/public/images/device.png";
 
 export function HeroSection() {
+  const MotionImage = motion(Image);
   const shouldReduceMotion = useReducedMotion();
 
   return (
     <section className="pt-32 pb-20 overflow-hidden bg-gradient-to-b from-[#DFEAF8] to-white">
-      <div className="container mx-auto px-4">
+      <div className="w-[90%] mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -75,50 +77,19 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="relative w-full h-[600px]">
-              <motion.div
-                animate={shouldReduceMotion ? {} : { y: [0, -20, 0] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute top-0 right-0 w-64"
-              >
-                <Image
-                  src="/placeholder.svg?height=600&width=300"
-                  alt="Illustration of a trading interface"
-                  width={300}
-                  height={600}
-                  className="rounded-2xl shadow-2xl"
-                />
-              </motion.div>
-              <motion.div
-                animate={shouldReduceMotion ? {} : { y: [0, 20, 0] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.5,
-                }}
-                className="absolute top-20 right-20 w-64"
-              >
-                <Image
-                  src="/placeholder.svg?height=600&width=300"
-                  alt="Analytics dashboard interface"
-                  width={300}
-                  height={600}
-                  className="rounded-2xl shadow-2xl"
-                />
-              </motion.div>
-            </div>
-          </motion.div>
+          <MotionImage
+            src={actualimage}
+            alt="Trading interface"
+            width={500}
+            height={600}
+            animate={shouldReduceMotion ? {} : { y: [0, -20, 0] }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="rounded-2xl shadow-2xl ml-auto"
+          />
         </div>
       </div>
     </section>
