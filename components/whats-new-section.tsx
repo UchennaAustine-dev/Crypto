@@ -40,7 +40,7 @@ export function WhatsNewSection() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-4xl font-bold mb-6 text-[#DFEAF8]">
-              What's <span className="text-[#186CCC]">new</span> we
+              What&#39;s <span className="text-[#186CCC]">new</span> we
               <br />
               provide for you?
             </h2>
