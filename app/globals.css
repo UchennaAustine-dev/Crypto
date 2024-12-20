@@ -1,21 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 216 71% 95%;
+    --foreground: 216 48% 28%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 216 48% 28%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 48% 28%;
+    
+    --primary: 213 78% 45%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 216 33% 28%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 216 33% 97%;
+    --muted-foreground: 216 33% 45%;
+    
+    --accent: 216 33% 97%;
+    --accent-foreground: 216 48% 28%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 216 33% 85%;
+    --input: 216 33% 85%;
+    --ring: 213 78% 45%;
+
+    --radius: 0.75rem;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
 }
+
+/* Custom Colors */
+:root {
+  --light-blue: #DFEAF8;
+  --navy: #20446F;
+  --blue: #186CCC;
+  --gray-blue: #849EC0;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
