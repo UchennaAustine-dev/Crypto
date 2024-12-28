@@ -39,7 +39,7 @@ export function WhatsNewSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl font-bold mb-6 text-[#DFEAF8]">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[#DFEAF8]">
               What&#39;s <span className="text-[#186CCC]">new</span> we
               <br />
               provide for you?
@@ -49,7 +49,7 @@ export function WhatsNewSection() {
               your trading experience and maximize your investment potential.
             </p>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}

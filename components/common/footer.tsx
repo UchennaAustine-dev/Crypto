@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import CryptoTicker from "./crypto-ticker";
+import { TickerTape } from "./ticker-tape";
+// import CryptoTicker from "./crypto-ticker";
 
 export function Footer() {
   return (
     <footer className="bg-[#20446F] py-10">
-      <CryptoTicker />
+      {/* <CryptoTicker /> */}
+      <TickerTape />
       <div className="container mx-auto px-4 mt-6">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2">
