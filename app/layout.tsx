@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { Navigation } from "@/components/common/navigation";
-import { Footer } from "@/components/common/footer";
+// import { Navigation } from "@/components/common/navigation";
+import { Toaster } from "react-hot-toast";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navigation />
+        {/* <Navigation /> */}
         {children}
-        <Footer />
+        <Toaster position="top-right" />
       </body>
     </html>
   );
